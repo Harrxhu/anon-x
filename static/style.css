@@ -8,14 +8,15 @@
 }
 
 body{
-    background:#020617;
+    background:#000;
     overflow:hidden;
     color:white;
 }
 
-/* BACKGROUND */
+/* CONNECT PAGE */
 
 .connect-page{
+
     width:100%;
     height:100vh;
 
@@ -24,7 +25,7 @@ body{
     align-items:center;
 
     background:
-    linear-gradient(rgba(0,0,0,.82),rgba(0,0,0,.88)),
+    linear-gradient(rgba(0,0,0,.88),rgba(0,0,0,.92)),
     url("https://images.unsplash.com/photo-1510511459019-5dda7724fd87?q=80&w=1974&auto=format&fit=crop");
 
     background-size:cover;
@@ -39,17 +40,17 @@ body{
 
     background:rgba(0,0,0,.60);
 
-    border:1px solid rgba(255,255,255,.08);
+    border:1px solid rgba(255,0,0,.18);
 
-    border-radius:30px;
+    border-radius:28px;
 
     padding:40px;
 
     position:relative;
 
     box-shadow:
-    0 0 40px rgba(0,255,255,.05),
-    inset 0 0 20px rgba(255,255,255,.02);
+    0 0 35px rgba(255,0,0,.12),
+    inset 0 0 20px rgba(255,0,0,.04);
 
     backdrop-filter:blur(6px);
 }
@@ -59,11 +60,13 @@ body{
 .logo{
 
     font-size:72px;
+
     line-height:1;
 
-    margin-bottom:15px;
+    margin-bottom:20px;
 
     font-weight:800;
+
     letter-spacing:3px;
 }
 
@@ -73,27 +76,29 @@ body{
 
     margin-top:10px;
 
-    color:#ff2d75;
+    color:#ff2d55;
 
     text-shadow:
-    0 0 10px #ff2d75,
-    0 0 20px #ff2d75,
-    0 0 35px #ff2d75;
+    0 0 10px #ff2d55,
+    0 0 20px #ff2d55,
+    0 0 35px #ff2d55;
 }
 
 /* DESCRIPTION */
 
 .desc{
 
-    color:#b8c5d8;
+    color:#d0d0d0;
 
-    margin-bottom:40px;
+    margin-bottom:35px;
 
     font-size:20px;
 }
 
 .blink{
-    color:#ff2d75;
+
+    color:#ff2d55;
+
     animation:blink 1s infinite;
 }
 
@@ -112,7 +117,7 @@ label{
     margin-bottom:12px;
     margin-top:24px;
 
-    color:#b6c2d9;
+    color:#ff2d55;
 
     font-size:18px;
 
@@ -127,9 +132,9 @@ input{
 
     padding:20px;
 
-    background:#050816;
+    background:#050505;
 
-    border:1px solid rgba(255,255,255,.08);
+    border:1px solid rgba(255,0,0,.18);
 
     border-radius:18px;
 
@@ -143,7 +148,7 @@ input{
 }
 
 input::placeholder{
-    color:#7f8aa3;
+    color:#666;
 }
 
 /* WARNING */
@@ -154,17 +159,17 @@ input::placeholder{
 
     padding:20px;
 
-    border:1px solid rgba(255,255,255,.08);
+    border:1px solid rgba(255,0,0,.15);
 
     border-radius:18px;
 
-    color:#aab6cc;
+    color:#bfbfbf;
 
     line-height:1.7;
 
-    font-size:17px;
+    font-size:16px;
 
-    background:rgba(255,255,255,.02);
+    background:rgba(255,0,0,.02);
 }
 
 /* BUTTON */
@@ -181,9 +186,9 @@ button{
 
     border-radius:18px;
 
-    background:#1cc8ee;
+    background:#101010;
 
-    color:black;
+    color:#ff2d55;
 
     font-size:34px;
 
@@ -195,16 +200,17 @@ button{
 
     transition:.3s;
 
+    border:1px solid rgba(255,0,0,.20);
+
     box-shadow:
-    0 0 25px rgba(28,200,238,.35);
+    0 0 20px rgba(255,0,0,.15);
 }
 
 button:hover{
 
     transform:scale(1.03);
 
-    box-shadow:
-    0 0 35px rgba(28,200,238,.5);
+    background:#151515;
 }
 
 /* TOP RIGHT */
@@ -216,9 +222,9 @@ button:hover{
     top:25px;
     right:25px;
 
-    color:#8d97aa;
+    color:#777;
 
-    font-size:13px;
+    font-size:12px;
 
     text-align:right;
 }
@@ -232,13 +238,13 @@ button:hover{
     bottom:18px;
     left:25px;
 
-    color:#667085;
+    color:#666;
 
     font-size:11px;
 }
 
 .footer-left span{
-    color:#1cc8ee;
+    color:#ff2d55;
 }
 
 .version{
@@ -248,7 +254,7 @@ button:hover{
     bottom:18px;
     right:25px;
 
-    color:#7f8aa3;
+    color:#666;
 
     font-size:11px;
 }
@@ -256,10 +262,13 @@ button:hover{
 /* CHAT PAGE */
 
 .chat-page{
+
     display:none;
+
     width:100%;
     height:100vh;
-    background:#020617;
+
+    background:#000;
 }
 
 /* TOPBAR */
@@ -274,13 +283,16 @@ button:hover{
 
     padding:20px 30px;
 
-    border-bottom:1px solid rgba(255,255,255,.08);
+    border-bottom:1px solid rgba(255,0,0,.12);
 
-    background:#050816;
+    background:#050505;
 }
 
 .roomtext{
-    color:#1cc8ee;
+
+    color:#ff2d55;
+
+    font-size:16px;
 }
 
 .clearbtn{
@@ -302,12 +314,10 @@ button:hover{
 
     padding:20px;
 
-    color:#9aa6bf;
+    color:#777;
 }
 
 /* MESSAGES */
-
-/* MESSAGES AREA */
 
 #messages{
 
@@ -343,10 +353,10 @@ button:hover{
 
     background:#0a0a0a;
 
-    border:1px solid rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.05);
 
     box-shadow:
-    0 0 10px rgba(255,0,0,.05);
+    0 0 10px rgba(255,0,0,.04);
 }
 
 /* YOUR MESSAGE */
@@ -355,9 +365,9 @@ button:hover{
 
     align-self:flex-end;
 
-    background:#111;
+    background:#121212;
 
-    border:1px solid rgba(255,0,0,.20);
+    border:1px solid rgba(255,0,0,.15);
 }
 
 /* OTHER USER */
@@ -379,49 +389,14 @@ button:hover{
 
     margin-bottom:6px;
 
-    color:#ff2d75;
+    color:#ff2d55;
 
     font-size:13px;
 
     letter-spacing:1px;
 }
 
-/* SCROLLBAR */
-
-#messages::-webkit-scrollbar{
-    width:6px;
-}
-
-#messages::-webkit-scrollbar-thumb{
-    background:#ff2d75;
-    border-radius:10px;
-}
-
-/* OTHER */
-
-.other{
-
-    align-self:flex-start;
-
-    background:#111827;
-
-    border:1px solid rgba(255,255,255,.08);
-}
-
-/* USERNAME */
-
-.msg b{
-
-    display:block;
-
-    margin-bottom:6px;
-
-    font-size:13px;
-
-    color:#b8b8b8;
-}
-
-/* INPUT AREA */
+/* CHAT INPUT */
 
 .chat-input{
 
@@ -433,9 +408,9 @@ button:hover{
 
     padding:20px;
 
-    border-top:1px solid rgba(255,255,255,.08);
+    border-top:1px solid rgba(255,0,0,.12);
 
-    background:#050816;
+    background:#050505;
 }
 
 .chat-input input{
@@ -452,4 +427,15 @@ button:hover{
     margin:0;
 
     font-size:20px;
+}
+
+/* SCROLLBAR */
+
+#messages::-webkit-scrollbar{
+    width:6px;
+}
+
+#messages::-webkit-scrollbar-thumb{
+    background:#ff2d55;
+    border-radius:10px;
 }
