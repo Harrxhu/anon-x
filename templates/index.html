@@ -22,12 +22,16 @@
 
         <div class="connect-card">
 
+            <div class="top-right">
+                NO IDENTITY <br> FOUND
+            </div>
+
             <h1 class="logo">
                 ZERO <span class="redx">TRACE</span>
             </h1>
 
             <p class="desc">
-                Chat Anonymously
+                Chat Anonymously<span class="blink">_</span>
             </p>
 
             <label>USERNAME</label>
@@ -36,7 +40,6 @@
                 type="text"
                 id="username"
                 placeholder="e.g. Harsh"
-                class="example-font"
             >
 
             <label>ROOM CODE</label>
@@ -45,16 +48,25 @@
                 type="text"
                 id="room"
                 placeholder="e.g. 192.168.1.1"
-                class="example-font"
             >
 
-            <p class="small">
-                Anyone Using The Same Room Code Can Join This Chat.
-            </p>
+            <div class="warning-box">
+                Anyone Using The Same Room Code
+                Can Join This Chat.
+            </div>
 
             <button onclick="joinRoom()">
                 CONNECT →
             </button>
+
+            <div class="footer-left">
+                SYSTEM WATCHING... <br>
+                <span>STAY ANONYMOUS</span>
+            </div>
+
+            <div class="version">
+                v 0.0.1
+            </div>
 
         </div>
 
