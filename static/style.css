@@ -364,46 +364,55 @@ button:hover{
     padding:20px;
 
     display:flex;
+
     flex-direction:column;
 
     gap:14px;
 }
 
-/* CHAT BOXES */
+/* MESSAGE BOX */
 
 .msg{
 
     max-width:72%;
 
-    padding:16px 18px;
+    padding:14px 18px;
 
     border-radius:18px;
 
-    background:#080808;
-
-    border:1px solid rgba(255,0,0,.12);
-
-    color:#e5e5e5;
+    font-size:15px;
 
     line-height:1.7;
 
-    font-size:15px;
-
     word-wrap:break-word;
+
+    color:#f1f1f1;
 }
+
+/* YOUR MSG */
 
 .you{
 
     align-self:flex-end;
 
+    margin-left:auto;
+
     background:#111;
+
+    border:1px solid rgba(255,0,0,.22);
 }
+
+/* OTHER MSG */
 
 .other{
 
     align-self:flex-start;
 
-    background:#070707;
+    margin-right:auto;
+
+    background:#050505;
+
+    border:1px solid rgba(255,255,255,.06);
 }
 
 /* USERNAME */
@@ -412,11 +421,11 @@ button:hover{
 
     display:block;
 
-    margin-bottom:8px;
+    margin-bottom:7px;
 
     color:#ff2a2a;
 
-    font-size:12px;
+    font-size:11px;
 
     letter-spacing:1px;
 }
