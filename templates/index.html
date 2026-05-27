@@ -10,6 +10,8 @@
 
     <link rel="stylesheet" href="/static/style.css">
 
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -20,57 +22,39 @@
 
         <div class="connect-card">
 
-            <div class="top-right">
-                NO IDENTITY <br>
-                FOUND
-            </div>
-
             <h1 class="logo">
-                <span class="white">ZERO</span>
-                <span class="red">TRACE</span>
+                ZERO <span class="redx">TRACE</span>
             </h1>
 
             <p class="desc">
-                Chat Anonymously<span class="blink">_</span>
+                Chat Anonymously
             </p>
 
-            <label>
-                👤 USERNAME
-            </label>
+            <label>USERNAME</label>
 
-            <input
+            <input 
                 type="text"
                 id="username"
                 placeholder="e.g. Harsh"
+                class="example-font"
             >
 
-            <label>
-                🔒 ROOM CODE
-            </label>
+            <label>ROOM CODE</label>
 
-            <input
+            <input 
                 type="text"
                 id="room"
                 placeholder="e.g. 192.168.1.1"
+                class="example-font"
             >
 
-            <div class="warning-box">
-                ⚠ Anyone Using The Same Room Code
-                Can Join This Chat.
-            </div>
+            <p class="small">
+                Anyone Using The Same Room Code Can Join This Chat.
+            </p>
 
             <button onclick="joinRoom()">
                 CONNECT →
             </button>
-
-            <div class="footer-left">
-                SYSTEM WATCHING... <br>
-                <span>STAY ANONYMOUS</span>
-            </div>
-
-            <div class="version">
-                v 0.0.1
-            </div>
 
         </div>
 
@@ -80,7 +64,37 @@
 
     <div class="chat-page" id="chat-page">
 
+        <div class="topbar">
+
+            <div class="roomtext">
+                ROOM // <span id="room-name"></span>
+            </div>
+
+            <button class="clearbtn" onclick="clearChat()">
+                CLEAR
+            </button>
+
+        </div>
+
+        <div class="start">
+            — Anonymous Connection Established —
+        </div>
+
         <div id="messages"></div>
+
+        <div class="chat-input">
+
+            <input 
+                type="text"
+                id="messageInput"
+                placeholder="Type Message..."
+            >
+
+            <button onclick="sendMessage()">
+                SEND
+            </button>
+
+        </div>
 
     </div>
 
