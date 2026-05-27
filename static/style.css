@@ -32,15 +32,20 @@ body{
 /* CARD */
 
 .connect-card{
-    width:480px;
+    width:360px;   /* pehle 480px ya 500+ tha */
+    padding:28px;  /* thoda compact */
+    transform:scale(0.85); /* PURE UI ko 25% chota */
+    transform-origin:center;
+
     background:rgba(0,0,0,.55);
     border:1px solid rgba(255,0,0,.25);
     border-radius:28px;
-    padding:40px;
     position:relative;
+
     box-shadow:
     0 0 25px rgba(255,0,0,.15),
     inset 0 0 30px rgba(255,0,0,.08);
+
     backdrop-filter:blur(6px);
 }
 
