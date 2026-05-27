@@ -307,6 +307,8 @@ button:hover{
 
 /* MESSAGES */
 
+/* MESSAGES AREA */
+
 #messages{
 
     height:70vh;
@@ -321,33 +323,78 @@ button:hover{
     gap:14px;
 }
 
-/* MSG */
+/* COMMON MESSAGE */
 
 .msg{
 
-    padding:16px 18px;
+    max-width:75%;
+
+    padding:14px 18px;
 
     border-radius:18px;
 
-    max-width:70%;
-
-    color:white;
+    color:#e6e6e6;
 
     font-size:16px;
 
     line-height:1.5;
+
+    word-wrap:break-word;
+
+    background:#0a0a0a;
+
+    border:1px solid rgba(255,255,255,.06);
+
+    box-shadow:
+    0 0 10px rgba(255,0,0,.05);
 }
 
-/* YOUR MSG */
+/* YOUR MESSAGE */
 
 .you{
 
     align-self:flex-end;
 
-    background:linear-gradient(135deg,#7b4dff,#6a3dff);
+    background:#111;
 
-    box-shadow:
-    0 0 15px rgba(123,77,255,.35);
+    border:1px solid rgba(255,0,0,.20);
+}
+
+/* OTHER USER */
+
+.other{
+
+    align-self:flex-start;
+
+    background:#080808;
+
+    border:1px solid rgba(255,255,255,.05);
+}
+
+/* USERNAME */
+
+.msg b{
+
+    display:block;
+
+    margin-bottom:6px;
+
+    color:#ff2d75;
+
+    font-size:13px;
+
+    letter-spacing:1px;
+}
+
+/* SCROLLBAR */
+
+#messages::-webkit-scrollbar{
+    width:6px;
+}
+
+#messages::-webkit-scrollbar-thumb{
+    background:#ff2d75;
+    border-radius:10px;
 }
 
 /* OTHER */
