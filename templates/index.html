@@ -1,93 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>ZERO TRACE</title>
 
     <link rel="stylesheet" href="/static/style.css">
-
 </head>
 
 <body>
 
-    <!-- CONNECT PAGE -->
+<div class="connect-page">
 
-    <div class="connect-page" id="connect-page">
+    <!-- LEFT -->
 
-        <div class="connect-card">
+    <div class="side left">
 
-            <div class="top-right">
-                NO IDENTITY <br>
-                FOUND
-            </div>
+        <div class="mini-box">
+            <h3>WARNING</h3>
 
-            <h1 class="logo">
-                <span class="white">ZERO</span>
-                <span class="red">TRACE</span>
-            </h1>
-
-            <p class="desc">
-                Chat Anonymously<span class="blink">_</span>
+            <p>
+                EVERYTHING YOU SAY
+                <br>
+                STAYS HERE
             </p>
+        </div>
 
-            <label>
-                👤 USERNAME
-            </label>
+        <div class="mini-box">
 
-            <input
-                type="text"
-                id="username"
-                placeholder="e.g. Harsh"
-            >
+            <h3>SECURITY PROTOCOL</h3>
 
-            <label>
-                🔒 ROOM CODE
-            </label>
+            <ul>
+                <li>NO USER TRACKING</li>
+                <li>NO DATA STORAGE</li>
+                <li>END TO END SHADOW</li>
+                <li>ZERO TRACE POLICY</li>
+            </ul>
 
-            <input
-                type="text"
-                id="room"
-                placeholder="e.g. 192.168.1.1"
-            >
+        </div>
 
-            <div class="warning-box">
-                ⚠ Anyone Using The Same Room Code
-                Can Join This Chat.
-            </div>
+        <div class="mini-box">
 
-            <button onclick="joinRoom()">
-                CONNECT →
-            </button>
+            <h3>NODE ACTIVITY</h3>
 
-            <div class="footer-left">
-                SYSTEM WATCHING... <br>
-                <span>STAY ANONYMOUS</span>
-            </div>
-
-            <div class="version">
-                v 0.0.1
-            </div>
+            <p class="red-text">
+                ACTIVE NODES : 1287
+            </p>
 
         </div>
 
     </div>
 
-    <!-- CHAT PAGE -->
+    <!-- CENTER -->
 
-    <div class="chat-page" id="chat-page">
+    <div class="connect-card">
 
-        <div id="messages"></div>
+        <div class="top-text">
+            YOU ARE NOW
+            <br>
+            <span>NOBODY</span>
+        </div>
+
+        <h1 class="logo">
+            <span class="white">ZERO</span>
+            <span class="red">TRACE</span>
+        </h1>
+
+        <p class="desc">
+            Chat Anonymously<span class="blink">█</span>
+        </p>
+
+        <div class="hood"></div>
+
+        <label>USERNAME</label>
+
+        <input
+        type="text"
+        id="username"
+        placeholder="e.g. Harsh"
+        >
+
+        <label>ROOM CODE</label>
+
+        <input
+        type="text"
+        id="room"
+        placeholder="e.g. 192.168.1.1"
+        >
+
+        <div class="warning-box">
+            ⚠ Anyone Using The Same Room Code
+            Can Join This Chat.
+        </div>
+
+        <button onclick="joinRoom()">
+            CONNECT →
+        </button>
+
+        <div class="bottom-text">
+            DISAPPEAR TO CONNECT
+        </div>
 
     </div>
 
-    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <!-- RIGHT -->
 
-    <script src="/static/script.js"></script>
+    <div class="side right">
+
+        <div class="mini-box">
+            <h3>NO IDENTITY FOUND</h3>
+
+            <div class="ghost"></div>
+        </div>
+
+        <div class="mini-box">
+
+            <h3>LIVE FEED</h3>
+
+            <p>[23:41] USER_7F3B : ...</p>
+            <p>[23:41] UNKNOWN : ...</p>
+            <p>[23:41] SHADOW_91A2 : ...</p>
+            <p>[23:41] GHOST_3C2D : ...</p>
+
+        </div>
+
+        <div class="mini-box">
+
+            <h3>REMEMBER</h3>
+
+            <p>
+                THERE IS NO "YOU" HERE
+                <br>
+                ONLY SHADOWS
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+<script src="/static/script.js"></script>
 
 </body>
-
 </html>
