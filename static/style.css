@@ -9,65 +9,59 @@
     gap:14px;
 }
 
-/* CHAT BOX */
+/* MESSAGE BOX */
 
 .msg{
 
-    background:#0a0a0a;
-    border:1px solid rgba(255,0,0,.18);
-
     padding:16px 18px;
 
-    border-radius:16px;
+    border-radius:18px;
 
-    color:#d9d9d9;
-
-    width:fit-content;
     max-width:70%;
 
-    font-size:17px;
-    line-height:1.6;
+    color:white;
 
-    box-shadow:
-    0 0 12px rgba(255,0,0,.08),
-    inset 0 0 10px rgba(255,0,0,.03);
+    font-size:16px;
+
+    line-height:1.5;
+
+    word-wrap:break-word;
 }
 
 /* YOUR MESSAGE */
 
 .you{
+
     align-self:flex-end;
 
-    background:#120000;
-
-    border:1px solid rgba(255,0,0,.35);
-
-    color:#fff;
+    background:linear-gradient(135deg,#7b4dff,#6a3dff);
 
     box-shadow:
-    0 0 18px rgba(255,0,0,.18),
-    inset 0 0 12px rgba(255,0,0,.05);
+    0 0 15px rgba(123,77,255,.35);
 }
 
-/* OTHER USER */
+/* OTHER MESSAGE */
 
 .other{
+
     align-self:flex-start;
 
-    background:#080808;
+    background:#111;
+
+    border:1px solid rgba(255,255,255,.08);
 }
 
 /* USERNAME */
 
 .msg b{
+
     display:block;
-    margin-bottom:8px;
 
-    color:#ff2a2a;
+    margin-bottom:6px;
 
-    font-size:14px;
+    font-size:13px;
 
-    letter-spacing:1px;
+    color:#b8b8b8;
 }
 
 /* SCROLLBAR */
@@ -77,6 +71,6 @@
 }
 
 #messages::-webkit-scrollbar-thumb{
-    background:#ff1a1a;
+    background:#6a3dff;
     border-radius:10px;
 }
