@@ -169,7 +169,8 @@ label{
     max-width:350px;
     margin-left:auto;
     margin-bottom:20px;
-    background:linear-gradient(135deg,#7b4dff,#6a3dff);
+    background:#0f1420;
+border:1px solid #1f2937;
     border-radius:18px;
     padding:16px;
     animation:fade 0.2s ease;
