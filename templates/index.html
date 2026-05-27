@@ -10,8 +10,6 @@
 
     <link rel="stylesheet" href="/static/style.css">
 
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800&display=swap" rel="stylesheet">
-
 </head>
 
 <body>
@@ -36,46 +34,34 @@
                 Chat Anonymously<span class="blink">_</span>
             </p>
 
-            <!-- USERNAME -->
-
             <label>
                 👤 USERNAME
             </label>
 
-            <input 
+            <input
                 type="text"
                 id="username"
                 placeholder="e.g. Harsh"
-                class="example-font"
             >
-
-            <!-- ROOM -->
 
             <label>
                 🔒 ROOM CODE
             </label>
 
-            <input 
+            <input
                 type="text"
                 id="room"
                 placeholder="e.g. 192.168.1.1"
-                class="example-font"
             >
-
-            <!-- WARNING -->
 
             <div class="warning-box">
                 ⚠ Anyone Using The Same Room Code
                 Can Join This Chat.
             </div>
 
-            <!-- BUTTON -->
-
             <button onclick="joinRoom()">
                 CONNECT →
             </button>
-
-            <!-- FOOTER -->
 
             <div class="footer-left">
                 SYSTEM WATCHING... <br>
@@ -94,37 +80,7 @@
 
     <div class="chat-page" id="chat-page">
 
-        <div class="topbar">
-
-            <div class="roomtext">
-                ROOM // <span id="room-name"></span>
-            </div>
-
-            <button class="clearbtn" onclick="clearChat()">
-                CLEAR
-            </button>
-
-        </div>
-
-        <div class="start">
-            — Anonymous Connection Established —
-        </div>
-
         <div id="messages"></div>
-
-        <div class="chat-input">
-
-            <input 
-                type="text"
-                id="messageInput"
-                placeholder="Type Message..."
-            >
-
-            <button onclick="sendMessage()">
-                SEND
-            </button>
-
-        </div>
 
     </div>
 
