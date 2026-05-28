@@ -4,13 +4,14 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Orbitron',sans-serif;
 }
 
 body{
     background:#020712;
     color:white;
     overflow:hidden;
+
+    font-family:Arial, Helvetica, sans-serif;
 }
 
 /* CONNECT PAGE */
@@ -26,6 +27,8 @@ body{
     background:#020712;
 }
 
+/* CARD */
+
 .connect-card{
     width:430px;
 
@@ -36,35 +39,65 @@ body{
     border-radius:28px;
 
     padding:40px;
+
+    box-shadow:
+    0 0 30px rgba(0,255,255,.03);
 }
 
+/* LOGO */
+
 .logo{
+    font-family:'Orbitron',sans-serif;
+
     font-size:70px;
+
     line-height:1;
+
     margin-bottom:20px;
+
+    letter-spacing:2px;
 }
 
 .redx{
     color:#ff2f74;
+
+    text-shadow:
+    0 0 10px #ff2f74,
+    0 0 20px #ff2f74;
 }
+
+/* DESC */
 
 .desc{
     color:#7c89a5;
+
     margin-bottom:35px;
+
     font-size:20px;
 }
 
+/* LABEL */
+
 label{
     display:block;
+
     margin-top:25px;
     margin-bottom:10px;
 
     color:#7c89a5;
+
     letter-spacing:4px;
+
+    font-size:14px;
+
+    font-family:'Orbitron',sans-serif;
 }
+
+/* INPUT */
 
 .connect-card input{
     width:100%;
+
     padding:18px;
 
     border:none;
@@ -79,14 +112,27 @@ label{
     font-size:18px;
 }
 
+.connect-card input::placeholder{
+    color:#6d7690;
+}
+
+/* SMALL TEXT */
+
 .small{
     margin-top:20px;
+
     color:#7c89a5;
+
     line-height:1.6;
+
+    font-size:16px;
 }
+
+/* BUTTON */
 
 .connect-card button{
     width:100%;
+
     margin-top:30px;
 
     padding:20px;
@@ -100,19 +146,34 @@ label{
     color:black;
 
     font-size:28px;
+
     font-weight:bold;
 
     cursor:pointer;
+
+    font-family:'Orbitron',sans-serif;
+
+    letter-spacing:4px;
+
+    transition:.3s;
+}
+
+.connect-card button:hover{
+    transform:scale(1.02);
 }
 
 /* CHAT PAGE */
 
 .chat-page{
     display:none;
+
     width:100%;
     height:100vh;
+
     background:#020712;
 }
+
+/* TOPBAR */
 
 .topbar{
     width:100%;
@@ -127,18 +188,27 @@ label{
     padding:0 30px;
 }
 
+/* ROOM TEXT */
+
 .roomtext{
     color:#7c89a5;
+
     font-size:24px;
+
     letter-spacing:3px;
+
+    font-family:'Orbitron',sans-serif;
 }
 
 .roomtext span{
     color:#19d3ff;
 }
 
+/* CLEAR BUTTON */
+
 .clearbtn{
     width:110px;
+
     padding:14px;
 
     border:none;
@@ -150,18 +220,29 @@ label{
     color:white;
 
     cursor:pointer;
+
+    font-family:'Orbitron',sans-serif;
 }
+
+/* START */
 
 .start{
     text-align:center;
+
     margin-top:15px;
+
     color:#7c89a5;
+
+    letter-spacing:2px;
+
+    font-family:'Orbitron',sans-serif;
 }
 
 /* MESSAGE AREA */
 
 #messages{
     width:100%;
+
     height:calc(100vh - 180px);
 
     overflow-y:auto;
@@ -183,9 +264,11 @@ label{
 
     border-radius:18px;
 
-    font-family:Arial;
-
     line-height:1.5;
+
+    font-size:17px;
+
+    word-wrap:break-word;
 }
 
 /* OTHER USER */
@@ -210,13 +293,19 @@ label{
     color:white;
 }
 
+/* USERNAME */
+
 .username{
     font-size:12px;
+
     margin-bottom:6px;
+
     color:#19d3ff;
+
+    font-family:'Orbitron',sans-serif;
 }
 
-/* INPUT */
+/* INPUT AREA */
 
 .chat-input{
     position:fixed;
@@ -226,10 +315,13 @@ label{
     width:100%;
 
     display:flex;
+
     gap:15px;
 
     padding:0 20px;
 }
+
+/* CHAT INPUT */
 
 .chat-input input{
     flex:1;
@@ -250,6 +342,8 @@ label{
     font-size:18px;
 }
 
+/* SEND BUTTON */
+
 .chat-input button{
     width:140px;
 
@@ -262,7 +356,12 @@ label{
     color:black;
 
     font-size:22px;
+
     font-weight:bold;
 
     cursor:pointer;
+
+    font-family:'Orbitron',sans-serif;
+
+    letter-spacing:2px;
 }
