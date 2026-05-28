@@ -98,3 +98,23 @@ function clearChat(){
 
     document.getElementById("messages").innerHTML = "";
 }
+
+/* ENTER PRESS AUTO CONNECT */
+
+document.getElementById("room").addEventListener("keypress", function(e){
+
+    if(e.key === "Enter"){
+        joinRoom();
+    }
+
+});
+
+/* AUTO SCROLL CHAT */
+
+const messagesBox = document.getElementById("messages");
+
+function scrollBottom(){
+
+    messagesBox.scrollTop = messagesBox.scrollHeight;
+
+}
