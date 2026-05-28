@@ -1,107 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- CHAT PAGE -->
 
-<head>
+<div class="chat-page" id="chat-page">
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div class="topbar">
 
-    <title>ZERO TRACE</title>
-
-    <link rel="stylesheet" href="/static/style.css">
-
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
-
-</head>
-
-<body>
-
-    <!-- CONNECT PAGE -->
-
-    <div class="connect-page" id="connect-page">
-
-        <div class="connect-card">
-
-            <h1 class="logo">
-                ZERO <span class="redx">TRACE</span>
-            </h1>
-
-            <p class="desc">
-                Chat Anonymously
-            </p>
-
-            <label>USERNAME</label>
-
-            <input 
-                type="text"
-                id="username"
-                placeholder="e.g. Harsh"
-                class="example-font"
-            >
-
-            <label>ROOM CODE</label>
-
-            <input 
-                type="text"
-                id="room"
-                placeholder="e.g. 192.168.1.1"
-                class="example-font"
-            >
-
-            <p class="small">
-                Anyone Using The Same Room Code Can Join This Chat.
-            </p>
-
-            <button onclick="joinRoom()">
-                CONNECT →
-            </button>
-
+        <div class="roomtext">
+            ROOM // <span id="room-name"></span>
         </div>
+
+        <button class="clearbtn" onclick="clearChat()">
+            CLEAR
+        </button>
 
     </div>
 
-    <!-- CHAT PAGE -->
+    <div class="start">
+        — Anonymous Connection Established —
+    </div>
 
-    <div class="chat-page" id="chat-page">
+    <div id="messages"></div>
 
-        <div class="topbar">
+    <div class="chat-input">
 
-            <div class="roomtext">
-                ROOM // <span id="room-name"></span>
-            </div>
+        <input
+            type="text"
+            id="messageInput"
+            placeholder="Type Message..."
+        >
 
-            <button class="clearbtn" onclick="clearChat()">
-                CLEAR
-            </button>
-
-        </div>
-
-        <div class="start">
-            — Anonymous Connection Established —
-        </div>
-
-        <div id="messages"></div>
-
-        <div class="chat-input">
-
-            <input 
-                type="text"
-                id="messageInput"
-                placeholder="Type Message..."
-            >
-
-            <button onclick="sendMessage()">
-                SEND
-            </button>
-
-        </div>
+        <button onclick="sendMessage()">
+            SEND
+        </button>
 
     </div>
 
-    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
-
-    <script src="/static/script.js"></script>
-
-</body>
-
-</html>
+</div>
