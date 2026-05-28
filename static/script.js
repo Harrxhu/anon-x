@@ -26,6 +26,8 @@ function joinRoom(){
     document.getElementById("chat-page").style.display = "block";
 
     document.getElementById("room-name").innerText = room;
+
+    scrollBottom();
 }
 
 /* SEND MESSAGE */
@@ -49,6 +51,8 @@ function sendMessage(){
     addMessage(username, message, true);
 
     input.value = "";
+
+    scrollBottom();
 }
 
 /* RECEIVE MESSAGE */
@@ -89,7 +93,7 @@ function addMessage(sender, text, isMe){
 
     messages.appendChild(msg);
 
-    messages.scrollTop = messages.scrollHeight;
+    scrollBottom();
 }
 
 /* CLEAR CHAT */
