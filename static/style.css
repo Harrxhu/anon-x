@@ -417,48 +417,65 @@ label{
 
 /* MOBILE */
 
+/* MOBILE KEYBOARD FIX */
+
+html,
+body{
+    position:fixed;
+
+    width:100%;
+
+    height:100%;
+
+    overflow:hidden;
+}
+
+.chat-page{
+    position:fixed;
+
+    inset:0;
+
+    overflow:hidden;
+}
+
+#messages{
+    position:absolute;
+
+    top:70px;
+
+    bottom:90px;
+
+    left:0;
+
+    right:0;
+
+    overflow-y:auto;
+
+    -webkit-overflow-scrolling:touch;
+}
+
+.chat-input{
+    position:absolute;
+
+    bottom:0;
+
+    left:0;
+
+    right:0;
+
+    z-index:999;
+}
+
+/* KEYBOARD OPEN FIX */
+
 @media screen and (max-width:768px){
 
-    .connect-card{
-        width:92%;
-
-        transform:translateY(-40px) scale(.95);
-
-        padding:34px;
+    body.keyboard-open .topbar{
+        display:flex !important;
     }
 
-    .logo{
-        font-size:42px;
-    }
-
-    .desc{
-        font-size:14px;
-    }
-
-    .small{
-        font-size:10px;
-    }
-
-    .roomtext{
-        font-size:18px;
-    }
-
-    .message{
-        max-width:220px;
-
-        font-size:15px;
-    }
-
-    .chat-input input{
-        height:56px;
-    }
-
-    .chat-input button{
-        width:110px;
-
-        height:56px;
-
-        font-size:18px;
+    body.keyboard-open #messages{
+        top:70px !important;
     }
 
 }

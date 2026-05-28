@@ -122,3 +122,19 @@ function scrollBottom(){
     messagesBox.scrollTop = messagesBox.scrollHeight;
 
 }
+
+/* MOBILE KEYBOARD DETECT */
+
+const msgInput = document.getElementById("messageInput");
+
+msgInput.addEventListener("focus", ()=>{
+
+    document.body.classList.add("keyboard-open");
+
+});
+
+msgInput.addEventListener("blur", ()=>{
+
+    document.body.classList.remove("keyboard-open");
+
+});
