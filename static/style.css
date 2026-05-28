@@ -30,7 +30,7 @@ body{
 /* CARD */
 
 .connect-card{
-    width:430px;
+    width:420px;
 
     background:#08101d;
 
@@ -43,24 +43,26 @@ body{
     box-shadow:
     0 0 30px rgba(0,255,255,.03);
 
-    transform:scale(.88);
+    transform:scale(.92);
 }
 
 /* LOGO */
 
-.logo{
+..logo{
     font-family:'Orbitron',sans-serif;
 
-    font-size:50px;
+    font-size:44px;
 
-    line-height:.8;
+    line-height:1;
 
-    margin-bottom:20px;
+    margin-bottom:18px;
 
     letter-spacing:1px;
 
     white-space:nowrap;
 }
+
+
 .redx{
     color:#ff2f74;
 
