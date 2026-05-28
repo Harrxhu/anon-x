@@ -3,153 +3,98 @@ const socket = io();
 let username = "";
 let room = "";
 
-// JOIN ROOM
+/* JOIN ROOM */
 
 function joinRoom(){
 
-    username = document
-    .getElementById("username")
-    .value
-    .trim();
+    username = document.getElementById("username").value;
 
-    room = document
-    .getElementById("room")
-    .value
-    .trim();
+    room = document.getElementById("room").value;
 
     if(username === "" || room === ""){
-
-        alert("ENTER USERNAME & ROOM");
-
+        alert("Enter Username & Room");
         return;
     }
 
     socket.emit("join_room", {
-
         username: username,
         room: room
-
     });
 
-    document
-    .getElementById("connect-page")
-    .style.display = "none";
+    document.getElementById("connect-page").style.display = "none";
 
-    document
-    .getElementById("chat-page")
-    .style.display = "block";
+    document.getElementById("chat-page").style.display = "block";
 
-    document
-    .getElementById("room-name")
-    .innerText = room;
+    document.getElementById("room-name").innerText = room;
 }
 
-// SEND MESSAGE
+/* SEND MESSAGE */
 
 function sendMessage(){
 
-    let input = document
-    .getElementById("messageInput");
+    const input = document.getElementById("messageInput");
 
-    let message = input.value.trim();
+    const message = input.value;
 
-    if(message === "") return;
+    if(message.trim() === ""){
+        return;
+    }
 
     socket.emit("send_message", {
-
         username: username,
         room: room,
         message: message
-
     });
+
+    addMessage(username, message, true);
 
     input.value = "";
 }
 
-// RECEIVE MESSAGE
+/* RECEIVE MESSAGE */
 
-socket.on("receive_message", function(data){
+socket.on("receive_message", (data) => {
 
-    let messages = document
-    .getElementById("messages");
+    if(data.username !== username){
 
-    let myMessage = data.username === username;
+        addMessage(data.username, data.message, false);
 
-    messages.innerHTML += `
+    }
 
-    <div class="message ${myMessage ? "" : "left"}">
-
-        <div class="message-user">
-            ${data.username}
-        </div>
-
-        <div class="message-text">
-            ${data.message}
-        </div>
-
-    </div>
-
-    `;
-
-    messages.scrollTop = messages.scrollHeight;
 });
 
-// CLEAR CHAT
+/* ADD MESSAGE */
+
+function addMessage(sender, text, isMe){
+
+    const messages = document.getElementById("messages");
+
+    const msg = document.createElement("div");
+
+    msg.classList.add("message");
+
+    if(isMe){
+
+        msg.classList.add("me");
+
+    }else{
+
+        msg.classList.add("other");
+    }
+
+    msg.innerHTML = `
+        <div class="username">${sender}</div>
+        <div class="msgtext">${text}</div>
+    `;
+
+    messages.appendChild(msg);
+
+    messages.scrollTop = messages.scrollHeight;
+}
+
+/* CLEAR CHAT */
 
 function clearChat(){
 
-    document
-    .getElementById("messages")
-    .innerHTML = "";
+    document.getElementById("messages").innerHTML = "";
 }
-
-// ENTER KEY SUPPORT
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    const usernameInput = document
-    .getElementById("username");
-
-    const roomInput = document
-    .getElementById("room");
-
-    const messageInput = document
-    .getElementById("messageInput");
-
-    // USERNAME -> ROOM
-
-    usernameInput.addEventListener("keypress", function(e){
-
-        if(e.key === "Enter"){
-
-            roomInput.focus();
-
-        }
-
-    });
-
-    // ROOM -> CONNECT
-
-    roomInput.addEventListener("keypress", function(e){
-
-        if(e.key === "Enter"){
-
-            joinRoom();
-
-        }
-
-    });
-
-    // MESSAGE -> SEND
-
-    messageInput.addEventListener("keypress", function(e){
-
-        if(e.key === "Enter"){
-
-            sendMessage();
-
-        }
-
-    });
-
-});
