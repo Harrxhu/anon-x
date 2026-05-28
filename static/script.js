@@ -86,11 +86,19 @@ function addMessage(sender, text, isMe){
         msg.classList.add("other");
     }
 
+    if(isMe){
+
+    msg.innerHTML = `
+        <div class="msgtext">${text}</div>
+    `;
+
+}else{
+
     msg.innerHTML = `
         <div class="username">${sender}</div>
         <div class="msgtext">${text}</div>
     `;
-
+}
     messages.appendChild(msg);
 
     scrollBottom();
