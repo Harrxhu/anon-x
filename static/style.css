@@ -289,7 +289,7 @@ label{
 
     flex-direction:column;
 
-    gap:14px;
+    gap:18px;
 
     scroll-behavior:smooth;
 
@@ -299,17 +299,15 @@ label{
 /* COMMON MESSAGE */
 
 .message{
-    max-width:260px;
+    max-width:220px;
 
-    padding:12px 16px;
+    padding:10px 14px;
 
-    border-radius:18px;
+    border-radius:16px;
 
-    line-height:1.5;
+    line-height:1.4;
 
-    font-size:15px;
-
-    word-wrap:break-word;
+    font-size:13px;
 }
 
 /* OTHER USER */
