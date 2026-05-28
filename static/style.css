@@ -78,15 +78,20 @@ body{
 
 /* DESC */
 
+/* DESC */
+
 .desc{
     color:#8fa0c7;
 
     margin-bottom:22px;
 
-    font-size:18px;
+    font-size:20px;
 
-    letter-spacing:.5px;
+    letter-spacing:1px;
+
+    font-family:'Orbitron',sans-serif;
 }
+
 /* LABEL */
 
 label{
@@ -129,14 +134,20 @@ label{
 
 /* SMALL TEXT */
 
+/* SMALL TEXT */
+
 .small{
     margin-top:14px;
 
     color:#7c89a5;
 
-    line-height:1.5;
+    line-height:1.7;
 
-    font-size:12px;
+    font-size:13px;
+
+    letter-spacing:1px;
+
+    font-family:'Orbitron',sans-serif;
 }
 
 /* BUTTON */
