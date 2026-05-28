@@ -380,3 +380,96 @@ label{
 
     letter-spacing:1px;
 }
+
+/* MOBILE FIX */
+
+html,
+body{
+    height:100%;
+    overflow:hidden;
+}
+
+/* CHAT PAGE */
+
+.chat-page{
+    width:100%;
+    height:100dvh;
+    overflow:hidden;
+
+    display:flex;
+    flex-direction:column;
+}
+
+/* MESSAGE AREA */
+
+#messages{
+    flex:1;
+
+    overflow-y:auto;
+
+    padding:18px;
+
+    padding-bottom:110px;
+}
+
+/* INPUT AREA */
+
+.chat-input{
+    position:fixed;
+
+    left:0;
+    bottom:0;
+
+    width:100%;
+
+    padding:12px;
+
+    background:#020712;
+
+    display:flex;
+
+    gap:10px;
+
+    z-index:999;
+}
+
+/* INPUT */
+
+.chat-input input{
+    flex:1;
+
+    height:55px;
+
+    border:none;
+    outline:none;
+
+    border-radius:16px;
+
+    background:#08101d;
+
+    color:white;
+
+    padding:0 16px;
+
+    font-size:16px;
+}
+
+/* BUTTON */
+
+.chat-input button{
+    width:120px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:#19d3ff;
+
+    color:black;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+}
