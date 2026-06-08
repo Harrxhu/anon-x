@@ -2,274 +2,374 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>ANONY-MX</title>
+<meta charset="UTF-8">
 
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='style.css') }}">
+<meta name="viewport"
+content="width=device-width,
+initial-scale=1.0,
+maximum-scale=1.0">
+
+<title>ANONY-MX</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap"
+rel="stylesheet">
+
 </head>
 
 <body>
-<body>
 
-<div class="connect-page" id="connect-page">
+<!-- BACKGROUND -->
 
-    <div class="matrix-bg"></div>
+<div class="grid-bg"></div>
 
-    <div class="hud-overlay"></div>
+<div class="scan-line"></div>
 
-    <div class="top-status">
+<!-- LOGIN PAGE -->
 
-        <div class="protocol-box">
-            <span>SHADOW NETWORK</span>
-            <small>PROTOCOL v2.4.1</small>
-        </div>
+<section
+class="login-page"
+id="connect-page">
 
-        <div class="secure-box">
-            SECURE • ENCRYPTED • ANONYMOUS
-        </div>
+<div class="hud-top">
 
-        <div class="status-box">
-            ● ONLINE
-        </div>
+<div class="hud-box">
+SHADOW-NET
+</div>
 
-    </div>
+<div class="hud-box">
+AES-256 ACTIVE
+</div>
 
-    <div class="dashboard">
-
-        <div class="dashboard-header">
-
-            <div class="classified">
-                CLASSIFIED COMMUNICATION SYSTEM
-            </div>
-
-            <h1 class="logo">
-                DARK <span>ROOM</span>
-            </h1>
-
-            <p class="subtitle">
-                Anonymous Conversations • Zero Tracking • End To End Encryption
-            </p>
-
-        </div>
-
-        <div class="main-terminal">
-
-            <!-- LEFT SIDE -->
-
-            <div class="left-panel">
-
-                <div class="avatar-card">
-
-                    <div class="avatar-circle">
-                        ☠
-                    </div>
-
-                    <div class="avatar-text">
-                        ANONYMOUS USER
-                    </div>
-
-                </div>
-
-                <div class="status-card">
-
-                    <div class="card-title">
-                        ENCRYPTION
-                    </div>
-
-                    <div class="card-value">
-                        AES-256 ACTIVE
-                    </div>
-
-                </div>
-
-                <div class="status-card">
-
-                    <div class="card-title">
-                        NETWORK
-                    </div>
-
-                    <div class="card-value">
-                        STABLE
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- CENTER -->
-
-            <div class="center-panel">
-
-                <div class="terminal-window">
-
-                    <div class="terminal-header">
-
-                        <span class="dot red"></span>
-                        <span class="dot yellow"></span>
-                        <span class="dot green"></span>
-
-                        <div class="terminal-name">
-                            ACCESS TERMINAL
-                        </div>
-
-                    </div>
-
-                    <div class="terminal-body">
-
-                        <label>CODENAME</label>
-
-                        <input
-                            type="text"
-                            id="username"
-                            placeholder="Enter Codename"
-                        >
-
-                        <label>CHANNEL ID</label>
-
-                        <input
-                            type="text"
-                            id="room"
-                            placeholder="e.g. XVO-5"
-                        >
-
-                        <div class="terminal-info">
-
-                            Any user with the same
-                            Channel ID can join this
-                            secure communication room.
-
-                        </div>
-
-                        <button
-                            class="connect-btn"
-                            onclick="joinRoom()"
-                        >
-                            ESTABLISH SECURE LINK
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- RIGHT -->
-
-            <div class="right-panel">
-
-                <div class="intel-card">
-
-                    <div class="intel-title">
-                        CHANNEL STATUS
-                    </div>
-
-                    <div class="intel-item">
-                        READY
-                    </div>
-
-                </div>
-
-                <div class="intel-card">
-
-                    <div class="intel-title">
-                        TRACE LEVEL
-                    </div>
-
-                    <div class="intel-item">
-                        0%
-                    </div>
-
-                </div>
-
-                <div class="intel-card">
-
-                    <div class="intel-title">
-                        SECURITY
-                    </div>
-
-                    <div class="intel-item">
-                        MAXIMUM
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
+<div class="hud-box">
+ONLINE
+</div>
 
 </div>
 
+<div class="login-container">
 
+<div class="left-hud">
+
+<div class="status-card">
+
+<div class="status-title">
+NETWORK
+</div>
+
+<div class="status-value">
+SECURE
+</div>
+
+</div>
+
+<div class="status-card">
+
+<div class="status-title">
+TRACE
+</div>
+
+<div class="status-value">
+0%
+</div>
+
+</div>
+
+<div class="status-card">
+
+<div class="status-title">
+ENCRYPTION
+</div>
+
+<div class="status-value">
+ACTIVE
+</div>
+
+</div>
+
+</div>
+
+<div class="main-terminal">
+
+<div class="classified">
+CLASSIFIED COMMUNICATION SYSTEM
+</div>
+
+<h1 class="logo">
+
+ANONY
+<span>-MX</span>
+
+</h1>
+
+<div class="subtitle">
+
+NO LOGS • NO TRACKING • NO IDENTITY
+
+</div>
+
+<div class="terminal-window">
+
+<div class="terminal-header">
+
+<div class="dot red"></div>
+
+<div class="dot yellow"></div>
+
+<div class="dot green"></div>
+
+<div class="terminal-name">
+
+ACCESS TERMINAL
+
+</div>
+
+</div>
+
+<div class="terminal-body">
+
+<label>
+
+CODENAME
+
+</label>
+
+<input
+type="text"
+id="username"
+placeholder="Anonymous User">
+
+<label>
+
+CHANNEL ID
+
+</label>
+
+<input
+type="text"
+id="room"
+placeholder="e.g. XVO-5">
+
+<div class="terminal-info">
+
+Users with the same
+Channel ID can join
+this encrypted room.
+
+</div>
+
+<button
+class="connect-btn"
+onclick="joinRoom()">
+
+ESTABLISH LINK
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="right-hud">
+
+<div class="hud-card">
+
+<div class="hud-title">
+
+CHANNEL
+
+</div>
+
+<div class="hud-value">
+
+READY
+
+</div>
+
+</div>
+
+<div class="hud-card">
+
+<div class="hud-title">
+
+SECURITY
+
+</div>
+
+<div class="hud-value">
+
+MAXIMUM
+
+</div>
+
+</div>
+
+<div class="hud-card">
+
+<div class="hud-title">
+
+NODE
+
+</div>
+
+<div class="hud-value">
+
+ONLINE
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
 
 <!-- CHAT PAGE -->
 
-<div class="chat-page" id="chat-page">
+<section
+class="chat-page"
+id="chat-page">
 
-    <div class="chat-bg"></div>
+<div class="chat-header">
 
-    <div class="chat-topbar">
+<div class="chat-left">
 
-        <div class="chat-left">
+<div class="channel-name">
 
-            <div class="channel-title">
-                SECURE CHANNEL
-            </div>
-
-            <div class="room-id">
-                ROOM // <span id="room-name"></span>
-            </div>
-
-        </div>
-
-        <div class="chat-right">
-
-            <div class="security-pill">
-                ENCRYPTED
-            </div>
-
-            <button
-                class="clearbtn"
-                onclick="clearChat()"
-            >
-                CLEAR
-            </button>
-
-        </div>
-
-    </div>
-
-    <div class="system-message">
-
-        CONNECTION ESTABLISHED
-
-    </div>
-
-    <div id="messages"></div>
-
-    <div class="chat-input">
-
-        <input
-            type="text"
-            id="messageInput"
-            placeholder="Transmit Message..."
-        >
-
-        <button onclick="sendMessage()">
-            SEND
-        </button>
-
-    </div>
+SECURE CHANNEL
 
 </div>
+
+<div class="room-id">
+
+ROOM //
+<span id="room-name">
+
+</span>
+
+</div>
+
+</div>
+
+<div class="chat-right">
+
+<div class="secure-pill">
+
+ENCRYPTED
+
+</div>
+
+<button
+class="clear-btn"
+onclick="clearChat()">
+
+CLEAR
+
+</button>
+
+</div>
+
+</div>
+
+<div class="chat-layout">
+
+<div class="chat-sidebar">
+
+<div class="side-panel">
+
+<div class="side-title">
+
+CHANNEL STATUS
+
+</div>
+
+<div class="side-value">
+
+CONNECTED
+
+</div>
+
+</div>
+
+<div class="side-panel">
+
+<div class="side-title">
+
+TRACE LEVEL
+
+</div>
+
+<div class="side-value">
+
+0%
+
+</div>
+
+</div>
+
+<div class="side-panel">
+
+<div class="side-title">
+
+SECURITY
+
+</div>
+
+<div class="side-value">
+
+MAXIMUM
+
+</div>
+
+</div>
+
+</div>
+
+<div class="chat-main">
+
+<div class="system-msg">
+
+SECURE LINK ESTABLISHED
+
+</div>
+
+<div id="messages">
+
+</div>
+
+<div class="chat-input">
+
+<input
+type="text"
+id="messageInput"
+placeholder="Transmit Message...">
+
+<button
+onclick="sendMessage()">
+
+SEND
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
 
 <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
 
 <script src="{{ url_for('static', filename='script.js') }}"></script>
 
 </body>
+
 </html>

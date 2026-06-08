@@ -5,92 +5,122 @@ let room = "";
 
 /* JOIN ROOM */
 
-function joinRoom() {
+function joinRoom(){
 
-    username = document.getElementById("username").value.trim();
-    room = document.getElementById("room").value.trim();
+    username = document
+        .getElementById("username")
+        .value
+        .trim();
 
-    if (!username || !room) {
+    room = document
+        .getElementById("room")
+        .value
+        .trim();
+
+    if(!username || !room){
+
         alert("Enter Codename & Channel ID");
         return;
     }
 
-    const btn = document.querySelector(".connect-btn");
+    const btn =
+        document.querySelector(".connect-btn");
 
-    if (btn) {
-        btn.innerText = "ESTABLISHING LINK...";
-        btn.disabled = true;
-    }
+    btn.innerText = "CONNECTING...";
 
-    setTimeout(() => {
+    btn.disabled = true;
 
-        socket.emit("join_room", {
-            username,
-            room
+    setTimeout(()=>{
+
+        socket.emit("join_room",{
+
+            username:username,
+            room:room
+
         });
 
-        document.getElementById("connect-page").style.display = "none";
-        document.getElementById("chat-page").style.display = "block";
+        document
+            .getElementById("connect-page")
+            .style.display = "none";
 
-        document.getElementById("room-name").innerText = room;
+        document
+            .getElementById("chat-page")
+            .style.display = "block";
 
-        if (document.getElementById("messageInput")) {
-            document.getElementById("messageInput").focus();
-        }
+        document
+            .getElementById("room-name")
+            .innerText = room;
 
-        scrollBottom();
+        document
+            .getElementById("messageInput")
+            .focus();
 
-    }, 1200);
+    },1000);
+
 }
 
-/* SEND MESSAGE */
+/* SEND */
 
-function sendMessage() {
+function sendMessage(){
 
-    const input = document.getElementById("messageInput");
+    const input =
+        document.getElementById("messageInput");
 
-    if (!input) return;
+    const message =
+        input.value.trim();
 
-    const message = input.value.trim();
+    if(message === "") return;
 
-    if (!message) return;
+    socket.emit("send_message",{
 
-    socket.emit("send_message", {
-        username,
-        room,
-        message
+        username:username,
+        room:room,
+        message:message
+
     });
 
-    addMessage(username, message, true);
+    addMessage(
+        username,
+        message,
+        true
+    );
 
     input.value = "";
 
-    scrollBottom();
 }
 
-/* RECEIVE MESSAGE */
+/* RECEIVE */
 
-socket.on("receive_message", (data) => {
+socket.on(
+    "receive_message",
+    (data)=>{
 
-    if (data.username !== username) {
+        if(data.username !== username){
 
-        addMessage(
-            data.username,
-            data.message,
-            false
-        );
+            addMessage(
+                data.username,
+                data.message,
+                false
+            );
+
+        }
+
     }
-});
+);
 
 /* ADD MESSAGE */
 
-function addMessage(sender, text, isMe) {
+function addMessage(
+    sender,
+    text,
+    isMe
+){
 
-    const messages = document.getElementById("messages");
+    const messages =
+        document.getElementById("messages");
 
-    if (!messages) return;
-
-    const msg = document.createElement("div");
+    const msg =
+        document.createElement("div");
 
     msg.classList.add("message");
 
@@ -101,128 +131,136 @@ function addMessage(sender, text, isMe) {
     const now = new Date();
 
     const time =
-        now.getHours().toString().padStart(2, "0") +
-        ":" +
-        now.getMinutes().toString().padStart(2, "0");
+        now.getHours()
+        .toString()
+        .padStart(2,"0")
 
-    msg.innerHTML = `
-        <div class="username">${escapeHtml(sender)}</div>
-        <div class="msgtext">${escapeHtml(text)}</div>
-        <div class="msgtime">${time}</div>
+        +
+
+        ":"
+
+        +
+
+        now.getMinutes()
+        .toString()
+        .padStart(2,"0");
+
+    msg.innerHTML =
+
+    `
+    <div class="username">
+        ${escapeHtml(sender)}
+    </div>
+
+    <div class="msgtext">
+        ${escapeHtml(text)}
+    </div>
+
+    <div class="msgtime">
+        ${time}
+    </div>
     `;
 
     messages.appendChild(msg);
 
     scrollBottom();
+
 }
 
-/* CLEAR CHAT */
+/* CLEAR */
 
-function clearChat() {
+function clearChat(){
 
-    const messages =
-        document.getElementById("messages");
+    document
+        .getElementById("messages")
+        .innerHTML = "";
 
-    if (messages) {
-        messages.innerHTML = "";
-    }
 }
 
-/* ENTER TO JOIN */
+/* ENTER JOIN */
 
-const roomInput =
-    document.getElementById("room");
+document
+.getElementById("room")
+.addEventListener(
 
-if (roomInput) {
+    "keypress",
 
-    roomInput.addEventListener(
-        "keypress",
-        function (e) {
+    function(e){
 
-            if (e.key === "Enter") {
-                joinRoom();
-            }
+        if(e.key === "Enter"){
+
+            joinRoom();
+
         }
-    );
-}
 
-/* ENTER TO SEND */
-
-document.addEventListener(
-    "DOMContentLoaded",
-    () => {
-
-        const msgInput =
-            document.getElementById("messageInput");
-
-        if (!msgInput) return;
-
-        msgInput.addEventListener(
-            "keypress",
-            function (e) {
-
-                if (e.key === "Enter") {
-                    sendMessage();
-                }
-            }
-        );
     }
+
 );
 
-/* AUTO SCROLL */
+/* ENTER SEND */
 
-function scrollBottom() {
+document.addEventListener(
 
-    const box =
-        document.getElementById("messages");
+"DOMContentLoaded",
 
-    if (!box) return;
+()=>{
 
-    setTimeout(() => {
+    const input =
+    document.getElementById(
+        "messageInput"
+    );
 
-        box.scrollTop =
-            box.scrollHeight;
+    if(!input) return;
 
-    }, 50);
+    input.addEventListener(
+
+        "keypress",
+
+        function(e){
+
+            if(e.key === "Enter"){
+
+                sendMessage();
+
+            }
+
+        }
+
+    );
+
 }
 
-/* ESCAPE HTML */
+);
 
-function escapeHtml(str) {
+/* SCROLL */
+
+function scrollBottom(){
+
+    const box =
+        document.getElementById(
+            "messages"
+        );
+
+    if(!box) return;
+
+    setTimeout(()=>{
+
+        box.scrollTop =
+        box.scrollHeight;
+
+    },50);
+
+}
+
+/* SAFE HTML */
+
+function escapeHtml(text){
 
     const div =
         document.createElement("div");
 
-    div.innerText = str;
+    div.innerText = text;
 
     return div.innerHTML;
+
 }
-
-/* FAKE TERMINAL BOOT EFFECT */
-
-window.addEventListener(
-    "load",
-    () => {
-
-        const classified =
-            document.querySelector(".classified");
-
-        if (!classified) return;
-
-        const original =
-            classified.innerText;
-
-        classified.innerText =
-            "INITIALIZING SECURE SYSTEM...";
-
-        setTimeout(() => {
-            classified.innerText =
-                "AUTHENTICATING NODE...";
-        }, 800);
-
-        setTimeout(() => {
-            classified.innerText =
-                original;
-        }, 1800);
-    }
-);
