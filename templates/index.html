@@ -1,3 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DARK ROOM</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- YAHAN SE TERA CONNECT PAGE CODE -->
+    <div class="connect-page" id="connect-page">
+        ...
+    </div>
+
+    <!-- YAHAN CHAT PAGE -->
+    <div class="chat-page" id="chat-page">
+        ...
+    </div>
+
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
+
 <div class="connect-page" id="connect-page">
 
     <div class="matrix-bg"></div>
@@ -250,3 +282,10 @@
     </div>
 
 </div>
+
+<script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
