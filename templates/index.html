@@ -3,108 +3,372 @@
 
 <head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta charset="UTF-8">
 
-    <title>DARK ROOM</title>
+<meta name="viewport"
+content="width=device-width,
+initial-scale=1.0,
+maximum-scale=1.0">
 
-    <link rel="stylesheet" href="/static/style.css">
+<title>ANONY-MX</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap"
+rel="stylesheet">
 
 </head>
 
 <body>
 
-<div class="zoom-wrap">
+<!-- BACKGROUND -->
 
-    <!-- CONNECT PAGE -->
+<div class="grid-bg"></div>
 
-    <div class="connect-page" id="connect-page">
+<div class="scan-line"></div>
 
-        <div class="connect-card">
+<!-- LOGIN PAGE -->
 
-            <h1 class="logo">
-                DARK <span class="redx">ROOM</span>
-            </h1>
+<section
+class="login-page"
+id="connect-page">
 
-            <p class="desc">
-                Anonymous Conversations
-            </p>
+<div class="hud-top">
 
-            <label>USERNAME</label>
+<div class="hud-box">
+SHADOW-NET
+</div>
 
-            <input 
-                type="text"
-                id="username"
-                placeholder="e.g. Harsh"
-                class="example-font"
-            >
+<div class="hud-box">
+AES-256 ACTIVE
+</div>
 
-            <label>ROOM CODE</label>
-
-            <input 
-                type="text"
-                id="room"
-                placeholder="e.g. 192.168.1.1"
-                class="example-font"
-            >
-
-            <p class="small">
-                Anyone Using The Same Room Code Can Join This Chat.
-            </p>
-
-            <button onclick="joinRoom()">
-                CONNECT →
-            </button>
-
-        </div>
-
-    </div>
-
-    <!-- CHAT PAGE -->
-
-    <div class="chat-page" id="chat-page">
-
-        <div class="topbar">
-
-            <div class="roomtext">
-                ROOM // <span id="room-name"></span>
-            </div>
-
-            <button class="clearbtn" onclick="clearChat()">
-                CLEAR
-            </button>
-
-        </div>
-
-        <div class="start">
-            — Anonymous Connection Established —
-        </div>
-
-        <div id="messages"></div>
-
-        <div class="chat-input">
-
-            <input 
-                type="text"
-                id="messageInput"
-                placeholder="Type Message..."
-            >
-
-            <button onclick="sendMessage()">
-                SEND
-            </button>
-
-        </div>
-
-    </div>
+<div class="hud-box">
+ONLINE
+</div>
 
 </div>
 
+<div class="login-container">
+
+<div class="left-hud">
+
+<div class="status-card">
+
+<div class="status-title">
+NETWORK
+</div>
+
+<div class="status-value">
+SECURE
+</div>
+
+</div>
+
+<div class="status-card">
+
+<div class="status-title">
+TRACE
+</div>
+
+<div class="status-value">
+0%
+</div>
+
+</div>
+
+<div class="status-card">
+
+<div class="status-title">
+ENCRYPTION
+</div>
+
+<div class="status-value">
+ACTIVE
+</div>
+
+</div>
+
+</div>
+
+<div class="main-terminal">
+
+<div class="classified">
+CLASSIFIED COMMUNICATION SYSTEM
+</div>
+
+<h1 class="logo">
+
+ANONY
+<span>-MX</span>
+
+</h1>
+
+<div class="subtitle">
+
+NO LOGS • NO TRACKING • NO IDENTITY
+
+</div>
+
+<div class="terminal-window">
+
+<div class="terminal-header">
+
+<div class="dot red"></div>
+
+<div class="dot yellow"></div>
+
+<div class="dot green"></div>
+
+<div class="terminal-name">
+
+ACCESS TERMINAL
+
+</div>
+
+</div>
+
+<div class="terminal-body">
+
+<label>
+
+CODENAME
+
+</label>
+
+<input
+type="text"
+id="username"
+placeholder="Anonymous User">
+
+<label>
+
+CHANNEL ID
+
+</label>
+
+<input
+type="text"
+id="room"
+placeholder="e.g. XVO-5">
+
+<div class="terminal-info">
+
+Users with the same
+Channel ID can join
+this encrypted room.
+
+</div>
+
+<button
+class="connect-btn"
+onclick="joinRoom()">
+
+ESTABLISH LINK
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="right-hud">
+
+<div class="hud-card">
+
+<div class="hud-title">
+
+CHANNEL
+
+</div>
+
+<div class="hud-value">
+
+READY
+
+</div>
+
+</div>
+
+<div class="hud-card">
+
+<div class="hud-title">
+
+SECURITY
+
+</div>
+
+<div class="hud-value">
+
+MAXIMUM
+
+</div>
+
+</div>
+
+<div class="hud-card">
+
+<div class="hud-title">
+
+NODE
+
+</div>
+
+<div class="hud-value">
+
+ONLINE
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CHAT PAGE -->
+
+<section
+class="chat-page"
+id="chat-page">
+
+<div class="chat-header">
+
+<div class="chat-left">
+
+<div class="channel-name">
+
+SECURE CHANNEL
+
+</div>
+
+<div class="room-id">
+
+ROOM //
+<span id="room-name">
+
+</span>
+
+</div>
+
+</div>
+
+<div class="chat-right">
+
+<div class="secure-pill">
+
+ENCRYPTED
+
+</div>
+
+<button
+class="clear-btn"
+onclick="clearChat()">
+
+CLEAR
+
+</button>
+
+</div>
+
+</div>
+
+<div class="chat-layout">
+
+<div class="chat-sidebar">
+
+<div class="side-panel">
+
+<div class="side-title">
+
+CHANNEL STATUS
+
+</div>
+
+<div class="side-value">
+
+CONNECTED
+
+</div>
+
+</div>
+
+<div class="side-panel">
+
+<div class="side-title">
+
+TRACE LEVEL
+
+</div>
+
+<div class="side-value">
+
+0%
+
+</div>
+
+</div>
+
+<div class="side-panel">
+
+<div class="side-title">
+
+SECURITY
+
+</div>
+
+<div class="side-value">
+
+MAXIMUM
+
+</div>
+
+</div>
+
+</div>
+
+<div class="chat-main">
+
+<div class="system-msg">
+
+SECURE LINK ESTABLISHED
+
+</div>
+
+<div id="messages">
+
+</div>
+
+<div class="chat-input">
+
+<input
+type="text"
+id="messageInput"
+placeholder="Transmit Message...">
+
+<button
+onclick="sendMessage()">
+
+SEND
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
 <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
 
-<script src="/static/script.js"></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
 
 </body>
 
