@@ -1107,3 +1107,17 @@ opacity:.6;
 text-align:right;
 letter-spacing:1px;
 }
+
+.connect-page{
+    align-items:flex-start !important;
+    padding-top:20px !important;
+}
+
+.dashboard{
+    margin-top:0 !important;
+}
+
+.dashboard::before,
+.dashboard::after{
+    display:none !important;
+}
