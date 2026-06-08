@@ -132,7 +132,7 @@ font-size:12px;
 /* MAIN */
 
 .dashboard{
-width:1200px;
+width:min(1200px,100%);;
 max-width:100%;
 
 background:rgba(0,0,0,.55);
@@ -1120,4 +1120,82 @@ letter-spacing:1px;
 .dashboard::before,
 .dashboard::after{
     display:none !important;
+}
+
+/* MOBILE FIX */
+
+@media screen and (max-width: 768px){
+
+    .dashboard{
+        width:100%;
+        padding:15px;
+        margin:0;
+        transform:none;
+    }
+
+    .main-terminal{
+        display:flex;
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .left-panel,
+    .center-panel,
+    .right-panel{
+        width:100%;
+    }
+
+    .logo{
+        font-size:52px;
+        line-height:1;
+        text-align:center;
+    }
+
+    .subtitle{
+        font-size:14px;
+        text-align:center;
+        padding:0 10px;
+    }
+
+    .dashboard-header{
+        text-align:center;
+    }
+
+    .terminal-window{
+        width:100%;
+    }
+
+    .terminal-body input{
+        width:100%;
+    }
+
+    .connect-btn{
+        width:100%;
+    }
+
+    .top-status{
+        display:none;
+    }
+
+    body{
+        overflow-x:hidden;
+    }
+
+}
+
+@media(max-width:768px){
+
+.message{
+    max-width:75%;
+    font-size:16px;
+}
+
+.username{
+    font-size:15px;
+}
+
+.msgtime{
+    font-size:11px;
+}
+
 }
