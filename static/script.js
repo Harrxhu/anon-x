@@ -5,47 +5,60 @@ let room = "";
 
 /* JOIN ROOM */
 
-function joinRoom(){
+function joinRoom() {
 
-    username = document.getElementById("username").value;
+    username = document.getElementById("username").value.trim();
+    room = document.getElementById("room").value.trim();
 
-    room = document.getElementById("room").value;
-
-    if(username === "" || room === ""){
-        alert("Enter Username & Room");
+    if (!username || !room) {
+        alert("Enter Codename & Channel ID");
         return;
     }
 
-    socket.emit("join_room", {
-        username: username,
-        room: room
-    });
+    const btn = document.querySelector(".connect-btn");
 
-    document.getElementById("connect-page").style.display = "none";
+    if (btn) {
+        btn.innerText = "ESTABLISHING LINK...";
+        btn.disabled = true;
+    }
 
-    document.getElementById("chat-page").style.display = "block";
+    setTimeout(() => {
 
-    document.getElementById("room-name").innerText = room;
+        socket.emit("join_room", {
+            username,
+            room
+        });
 
-    scrollBottom();
+        document.getElementById("connect-page").style.display = "none";
+        document.getElementById("chat-page").style.display = "block";
+
+        document.getElementById("room-name").innerText = room;
+
+        if (document.getElementById("messageInput")) {
+            document.getElementById("messageInput").focus();
+        }
+
+        scrollBottom();
+
+    }, 1200);
 }
 
 /* SEND MESSAGE */
 
-function sendMessage(){
+function sendMessage() {
 
     const input = document.getElementById("messageInput");
 
-    const message = input.value;
+    if (!input) return;
 
-    if(message.trim() === ""){
-        return;
-    }
+    const message = input.value.trim();
+
+    if (!message) return;
 
     socket.emit("send_message", {
-        username: username,
-        room: room,
-        message: message
+        username,
+        room,
+        message
     });
 
     addMessage(username, message, true);
@@ -59,46 +72,45 @@ function sendMessage(){
 
 socket.on("receive_message", (data) => {
 
-    if(data.username !== username){
+    if (data.username !== username) {
 
-        addMessage(data.username, data.message, false);
-
+        addMessage(
+            data.username,
+            data.message,
+            false
+        );
     }
-
 });
 
 /* ADD MESSAGE */
 
-function addMessage(sender, text, isMe){
+function addMessage(sender, text, isMe) {
 
     const messages = document.getElementById("messages");
+
+    if (!messages) return;
 
     const msg = document.createElement("div");
 
     msg.classList.add("message");
 
-    if(isMe){
+    msg.classList.add(
+        isMe ? "me" : "other"
+    );
 
-        msg.classList.add("me");
+    const now = new Date();
 
-    }else{
-
-        msg.classList.add("other");
-    }
-
-    if(isMe){
-
-    msg.innerHTML = `
-        <div class="msgtext">${text}</div>
-    `;
-
-}else{
+    const time =
+        now.getHours().toString().padStart(2, "0") +
+        ":" +
+        now.getMinutes().toString().padStart(2, "0");
 
     msg.innerHTML = `
-        <div class="username">${sender}</div>
-        <div class="msgtext">${text}</div>
+        <div class="username">${escapeHtml(sender)}</div>
+        <div class="msgtext">${escapeHtml(text)}</div>
+        <div class="msgtime">${time}</div>
     `;
-}
+
     messages.appendChild(msg);
 
     scrollBottom();
@@ -106,43 +118,111 @@ function addMessage(sender, text, isMe){
 
 /* CLEAR CHAT */
 
-function clearChat(){
+function clearChat() {
 
-    document.getElementById("messages").innerHTML = "";
-}
+    const messages =
+        document.getElementById("messages");
 
-/* ENTER PRESS AUTO CONNECT */
-
-document.getElementById("room").addEventListener("keypress", function(e){
-
-    if(e.key === "Enter"){
-        joinRoom();
+    if (messages) {
+        messages.innerHTML = "";
     }
-
-});
-
-/* AUTO SCROLL CHAT */
-
-const messagesBox = document.getElementById("messages");
-
-function scrollBottom(){
-
-    messagesBox.scrollTop = messagesBox.scrollHeight;
-
 }
 
-/* MOBILE KEYBOARD DETECT */
+/* ENTER TO JOIN */
 
-const msgInput = document.getElementById("messageInput");
+const roomInput =
+    document.getElementById("room");
 
-msgInput.addEventListener("focus", ()=>{
+if (roomInput) {
 
-    document.body.classList.add("keyboard-open");
+    roomInput.addEventListener(
+        "keypress",
+        function (e) {
 
-});
+            if (e.key === "Enter") {
+                joinRoom();
+            }
+        }
+    );
+}
 
-msgInput.addEventListener("blur", ()=>{
+/* ENTER TO SEND */
 
-    document.body.classList.remove("keyboard-open");
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
 
-});
+        const msgInput =
+            document.getElementById("messageInput");
+
+        if (!msgInput) return;
+
+        msgInput.addEventListener(
+            "keypress",
+            function (e) {
+
+                if (e.key === "Enter") {
+                    sendMessage();
+                }
+            }
+        );
+    }
+);
+
+/* AUTO SCROLL */
+
+function scrollBottom() {
+
+    const box =
+        document.getElementById("messages");
+
+    if (!box) return;
+
+    setTimeout(() => {
+
+        box.scrollTop =
+            box.scrollHeight;
+
+    }, 50);
+}
+
+/* ESCAPE HTML */
+
+function escapeHtml(str) {
+
+    const div =
+        document.createElement("div");
+
+    div.innerText = str;
+
+    return div.innerHTML;
+}
+
+/* FAKE TERMINAL BOOT EFFECT */
+
+window.addEventListener(
+    "load",
+    () => {
+
+        const classified =
+            document.querySelector(".classified");
+
+        if (!classified) return;
+
+        const original =
+            classified.innerText;
+
+        classified.innerText =
+            "INITIALIZING SECURE SYSTEM...";
+
+        setTimeout(() => {
+            classified.innerText =
+                "AUTHENTICATING NODE...";
+        }, 800);
+
+        setTimeout(() => {
+            classified.innerText =
+                original;
+        }, 1800);
+    }
+);

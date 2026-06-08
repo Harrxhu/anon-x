@@ -1,100 +1,186 @@
-<!DOCTYPE html>
-<html lang="en">
+<div class="connect-page" id="connect-page">
 
-<head>
+    <div class="matrix-bg"></div>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <div class="hud-overlay"></div>
 
-    <title>DARK ROOM</title>
+    <div class="top-status">
 
-    <link rel="stylesheet" href="/static/style.css">
+        <div class="protocol-box">
+            <span>SHADOW NETWORK</span>
+            <small>PROTOCOL v2.4.1</small>
+        </div>
 
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+        <div class="secure-box">
+            SECURE • ENCRYPTED • ANONYMOUS
+        </div>
 
-</head>
-
-<body>
-
-<div class="zoom-wrap">
-
-    <!-- CONNECT PAGE -->
-
-    <div class="connect-page" id="connect-page">
-
-        <div class="connect-card">
-
-            <h1 class="logo">
-                DARK <span class="redx">ROOM</span>
-            </h1>
-
-            <p class="desc">
-                Anonymous Conversations
-            </p>
-
-            <label>USERNAME</label>
-
-            <input 
-                type="text"
-                id="username"
-                placeholder="e.g. Harsh"
-                class="example-font"
-            >
-
-            <label>ROOM CODE</label>
-
-            <input 
-                type="text"
-                id="room"
-                placeholder="e.g. 192.168.1.1"
-                class="example-font"
-            >
-
-            <p class="small">
-                Anyone Using The Same Room Code Can Join This Chat.
-            </p>
-
-            <button onclick="joinRoom()">
-                CONNECT →
-            </button>
-
+        <div class="status-box">
+            ● ONLINE
         </div>
 
     </div>
 
-    <!-- CHAT PAGE -->
+    <div class="dashboard">
 
-    <div class="chat-page" id="chat-page">
+        <div class="dashboard-header">
 
-        <div class="topbar">
-
-            <div class="roomtext">
-                ROOM // <span id="room-name"></span>
+            <div class="classified">
+                CLASSIFIED COMMUNICATION SYSTEM
             </div>
 
-            <button class="clearbtn" onclick="clearChat()">
-                CLEAR
-            </button>
+            <h1 class="logo">
+                DARK <span>ROOM</span>
+            </h1>
+
+            <p class="subtitle">
+                Anonymous Conversations • Zero Tracking • End To End Encryption
+            </p>
 
         </div>
 
-        <div class="start">
-            — Anonymous Connection Established —
-        </div>
+        <div class="main-terminal">
 
-        <div id="messages"></div>
+            <!-- LEFT SIDE -->
 
-        <div class="chat-input">
+            <div class="left-panel">
 
-            <input 
-                type="text"
-                id="messageInput"
-                placeholder="Type Message..."
-            >
+                <div class="avatar-card">
 
-            <button onclick="sendMessage()">
-                SEND
-            </button>
+                    <div class="avatar-circle">
+                        ☠
+                    </div>
+
+                    <div class="avatar-text">
+                        ANONYMOUS USER
+                    </div>
+
+                </div>
+
+                <div class="status-card">
+
+                    <div class="card-title">
+                        ENCRYPTION
+                    </div>
+
+                    <div class="card-value">
+                        AES-256 ACTIVE
+                    </div>
+
+                </div>
+
+                <div class="status-card">
+
+                    <div class="card-title">
+                        NETWORK
+                    </div>
+
+                    <div class="card-value">
+                        STABLE
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CENTER -->
+
+            <div class="center-panel">
+
+                <div class="terminal-window">
+
+                    <div class="terminal-header">
+
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+
+                        <div class="terminal-name">
+                            ACCESS TERMINAL
+                        </div>
+
+                    </div>
+
+                    <div class="terminal-body">
+
+                        <label>CODENAME</label>
+
+                        <input
+                            type="text"
+                            id="username"
+                            placeholder="Enter Codename"
+                        >
+
+                        <label>CHANNEL ID</label>
+
+                        <input
+                            type="text"
+                            id="room"
+                            placeholder="e.g. XVO-5"
+                        >
+
+                        <div class="terminal-info">
+
+                            Any user with the same
+                            Channel ID can join this
+                            secure communication room.
+
+                        </div>
+
+                        <button
+                            class="connect-btn"
+                            onclick="joinRoom()"
+                        >
+                            ESTABLISH SECURE LINK
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- RIGHT -->
+
+            <div class="right-panel">
+
+                <div class="intel-card">
+
+                    <div class="intel-title">
+                        CHANNEL STATUS
+                    </div>
+
+                    <div class="intel-item">
+                        READY
+                    </div>
+
+                </div>
+
+                <div class="intel-card">
+
+                    <div class="intel-title">
+                        TRACE LEVEL
+                    </div>
+
+                    <div class="intel-item">
+                        0%
+                    </div>
+
+                </div>
+
+                <div class="intel-card">
+
+                    <div class="intel-title">
+                        SECURITY
+                    </div>
+
+                    <div class="intel-item">
+                        MAXIMUM
+                    </div>
+
+                </div>
+
+            </div>
 
         </div>
 
@@ -102,10 +188,65 @@
 
 </div>
 
-<script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
 
-<script src="/static/script.js"></script>
 
-</body>
+<!-- CHAT PAGE -->
 
-</html>
+<div class="chat-page" id="chat-page">
+
+    <div class="chat-bg"></div>
+
+    <div class="chat-topbar">
+
+        <div class="chat-left">
+
+            <div class="channel-title">
+                SECURE CHANNEL
+            </div>
+
+            <div class="room-id">
+                ROOM // <span id="room-name"></span>
+            </div>
+
+        </div>
+
+        <div class="chat-right">
+
+            <div class="security-pill">
+                ENCRYPTED
+            </div>
+
+            <button
+                class="clearbtn"
+                onclick="clearChat()"
+            >
+                CLEAR
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="system-message">
+
+        CONNECTION ESTABLISHED
+
+    </div>
+
+    <div id="messages"></div>
+
+    <div class="chat-input">
+
+        <input
+            type="text"
+            id="messageInput"
+            placeholder="Transmit Message..."
+        >
+
+        <button onclick="sendMessage()">
+            SEND
+        </button>
+
+    </div>
+
+</div>
