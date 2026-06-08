@@ -7,260 +7,134 @@ let room = "";
 
 function joinRoom(){
 
-    username = document
-        .getElementById("username")
-        .value
-        .trim();
+    username = document.getElementById("username").value;
 
-    room = document
-        .getElementById("room")
-        .value
-        .trim();
+    room = document.getElementById("room").value;
 
-    if(!username || !room){
-
-        alert("Enter Codename & Channel ID");
+    if(username === "" || room === ""){
+        alert("Enter Username & Room");
         return;
     }
 
-    const btn =
-        document.querySelector(".connect-btn");
+    socket.emit("join_room", {
+        username: username,
+        room: room
+    });
 
-    btn.innerText = "CONNECTING...";
+    document.getElementById("connect-page").style.display = "none";
 
-    btn.disabled = true;
+    document.getElementById("chat-page").style.display = "block";
 
-    setTimeout(()=>{
+    document.getElementById("room-name").innerText = room;
 
-        socket.emit("join_room",{
-
-            username:username,
-            room:room
-
-        });
-
-        document
-            .getElementById("connect-page")
-            .style.display = "none";
-
-        document
-            .getElementById("chat-page")
-            .style.display = "block";
-
-        document
-            .getElementById("room-name")
-            .innerText = room;
-
-        document
-            .getElementById("messageInput")
-            .focus();
-
-    },1000);
-
+    scrollBottom();
 }
 
-/* SEND */
+/* SEND MESSAGE */
 
 function sendMessage(){
 
-    const input =
-        document.getElementById("messageInput");
+    const input = document.getElementById("messageInput");
 
-    const message =
-        input.value.trim();
+    const message = input.value;
 
-    if(message === "") return;
+    if(message.trim() === ""){
+        return;
+    }
 
-    socket.emit("send_message",{
-
-        username:username,
-        room:room,
-        message:message
-
+    socket.emit("send_message", {
+        username: username,
+        room: room,
+        message: message
     });
 
-    addMessage(
-        username,
-        message,
-        true
-    );
+    addMessage(username, message, true);
 
     input.value = "";
 
+    scrollBottom();
 }
 
-/* RECEIVE */
+/* RECEIVE MESSAGE */
 
-socket.on(
-    "receive_message",
-    (data)=>{
+socket.on("receive_message", (data) => {
 
-        if(data.username !== username){
+    if(data.username !== username){
 
-            addMessage(
-                data.username,
-                data.message,
-                false
-            );
-
-        }
+        addMessage(data.username, data.message, false);
 
     }
-);
+
+});
 
 /* ADD MESSAGE */
 
-function addMessage(
-    sender,
-    text,
-    isMe
-){
+function addMessage(sender, text, isMe){
 
-    const messages =
-        document.getElementById("messages");
+    const messages = document.getElementById("messages");
 
-    const msg =
-        document.createElement("div");
+    const msg = document.createElement("div");
 
     msg.classList.add("message");
 
-    msg.classList.add(
-        isMe ? "me" : "other"
-    );
+    if(isMe){
 
-    const now = new Date();
+        msg.classList.add("me");
 
-    const time =
-        now.getHours()
-        .toString()
-        .padStart(2,"0")
+    }else{
 
-        +
+        msg.classList.add("other");
+    }
 
-        ":"
-
-        +
-
-        now.getMinutes()
-        .toString()
-        .padStart(2,"0");
-
-    msg.innerHTML =
-
-    `
-    <div class="username">
-        ${escapeHtml(sender)}
-    </div>
-
-    <div class="msgtext">
-        ${escapeHtml(text)}
-    </div>
-
-    <div class="msgtime">
-        ${time}
-    </div>
+    msg.innerHTML = `
+        <div class="username">${sender}</div>
+        <div class="msgtext">${text}</div>
     `;
 
     messages.appendChild(msg);
 
     scrollBottom();
-
 }
 
-/* CLEAR */
+/* CLEAR CHAT */
 
 function clearChat(){
 
-    document
-        .getElementById("messages")
-        .innerHTML = "";
-
+    document.getElementById("messages").innerHTML = "";
 }
 
-/* ENTER JOIN */
+/* ENTER PRESS AUTO CONNECT */
 
-document
-.getElementById("room")
-.addEventListener(
+document.getElementById("room").addEventListener("keypress", function(e){
 
-    "keypress",
-
-    function(e){
-
-        if(e.key === "Enter"){
-
-            joinRoom();
-
-        }
-
+    if(e.key === "Enter"){
+        joinRoom();
     }
 
-);
+});
 
-/* ENTER SEND */
+/* AUTO SCROLL CHAT */
 
-document.addEventListener(
-
-"DOMContentLoaded",
-
-()=>{
-
-    const input =
-    document.getElementById(
-        "messageInput"
-    );
-
-    if(!input) return;
-
-    input.addEventListener(
-
-        "keypress",
-
-        function(e){
-
-            if(e.key === "Enter"){
-
-                sendMessage();
-
-            }
-
-        }
-
-    );
-
-}
-
-);
-
-/* SCROLL */
+const messagesBox = document.getElementById("messages");
 
 function scrollBottom(){
 
-    const box =
-        document.getElementById(
-            "messages"
-        );
-
-    if(!box) return;
-
-    setTimeout(()=>{
-
-        box.scrollTop =
-        box.scrollHeight;
-
-    },50);
+    messagesBox.scrollTop = messagesBox.scrollHeight;
 
 }
 
-/* SAFE HTML */
+/* MOBILE KEYBOARD DETECT */
 
-function escapeHtml(text){
+const msgInput = document.getElementById("messageInput");
 
-    const div =
-        document.createElement("div");
+msgInput.addEventListener("focus", ()=>{
 
-    div.innerText = text;
+    document.body.classList.add("keyboard-open");
 
-    return div.innerHTML;
+});
 
-}
+msgInput.addEventListener("blur", ()=>{
+
+    document.body.classList.remove("keyboard-open");
+
+});
