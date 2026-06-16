@@ -445,3 +445,27 @@ label{
         bottom:85px;
     }
 }
+
+.top-actions{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.callbtn,
+.videobtn{
+    width:50px;
+    height:50px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#08101d;
+
+    color:#19d3ff;
+
+    cursor:pointer;
+
+    font-size:20px;
+}

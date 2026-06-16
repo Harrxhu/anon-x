@@ -138,3 +138,43 @@ msgInput.addEventListener("blur", ()=>{
     document.body.classList.remove("keyboard-open");
 
 });
+
+let localStream;
+let peerConnection;
+
+const servers = {
+    iceServers:[
+        {
+            urls:"stun:stun.l.google.com:19302"
+        }
+    ]
+};
+
+async function startVoiceCall(){
+
+    localStream = await navigator.mediaDevices.getUserMedia({
+        audio:true
+    });
+
+    peerConnection = new RTCPeerConnection(servers);
+
+    localStream.getTracks().forEach(track=>{
+        peerConnection.addTrack(track, localStream);
+    });
+
+}
+
+async function startVideoCall(){
+
+    localStream = await navigator.mediaDevices.getUserMedia({
+        audio:true,
+        video:true
+    });
+
+    peerConnection = new RTCPeerConnection(servers);
+
+    localStream.getTracks().forEach(track=>{
+        peerConnection.addTrack(track, localStream);
+    });
+
+}

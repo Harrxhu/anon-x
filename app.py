@@ -41,6 +41,42 @@ def message(data):
         room=data["room"]
     )
 
+# WEBRTC OFFER
+
+@socketio.on("offer")
+def offer(data):
+
+    emit(
+        "offer",
+        data,
+        room=data["room"],
+        include_self=False
+    )
+
+# WEBRTC ANSWER
+
+@socketio.on("answer")
+def answer(data):
+
+    emit(
+        "answer",
+        data,
+        room=data["room"],
+        include_self=False
+    )
+
+# ICE CANDIDATE
+
+@socketio.on("ice_candidate")
+def ice_candidate(data):
+
+    emit(
+        "ice_candidate",
+        data,
+        room=data["room"],
+        include_self=False
+    )
+
 if __name__ == "__main__":
     import os
     port = int(os.environ.get("PORT", 5000))

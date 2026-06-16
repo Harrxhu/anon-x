@@ -64,19 +64,29 @@
 
     <!-- CHAT PAGE -->
 
-    <div class="chat-page" id="chat-page">
+    <div class="topbar">
 
-        <div class="topbar">
+    <div class="roomtext">
+        ROOM // <span id="room-name"></span>
+    </div>
 
-            <div class="roomtext">
-                ROOM // <span id="room-name"></span>
-            </div>
+    <div class="top-actions">
 
-            <button class="clearbtn" onclick="clearChat()">
-                CLEAR
-            </button>
+        <button class="callbtn" onclick="startVoiceCall()">
+            📞
+        </button>
 
-        </div>
+        <button class="videobtn" onclick="startVideoCall()">
+            📹
+        </button>
+
+        <button class="clearbtn" onclick="clearChat()">
+            CLEAR
+        </button>
+
+    </div>
+
+</div>
 
         <div class="start">
             — Anonymous Connection Established —
