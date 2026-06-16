@@ -1,112 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- CHAT PAGE -->
 
-<head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-    <title>DARK ROOM</title>
-
-    <link rel="stylesheet" href="/static/style.css">
-
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
-
-</head>
-
-<body>
-
-<div class="zoom-wrap">
-
-    <!-- CONNECT PAGE -->
-
-    <div class="connect-page" id="connect-page">
-
-        <div class="connect-card">
-
-            <h1 class="logo">
-                DARK <span class="redx">ROOM</span>
-            </h1>
-
-            <p class="desc">
-                Anonymous Conversations
-            </p>
-
-            <label>USERNAME</label>
-
-            <input 
-                type="text"
-                id="username"
-                placeholder="e.g. Harsh"
-                class="example-font"
-            >
-
-            <label>ROOM CODE</label>
-
-            <input 
-                type="text"
-                id="room"
-                placeholder="e.g. 192.168.1.1"
-                class="example-font"
-            >
-
-            <p class="small">
-                Anyone Using The Same Room Code Can Join This Chat.
-            </p>
-
-            <button onclick="joinRoom()">
-                CONNECT →
-            </button>
-
-        </div>
-
-    </div>
-
-    <!-- CHAT PAGE -->
+<div class="chat-page" id="chat-page">
 
     <div class="topbar">
 
-    <div class="roomtext">
-        ROOM // <span id="room-name"></span>
-    </div>
-
-    <div class="top-actions">
-
-        <button class="callbtn" onclick="startVoiceCall()">
-            📞
-        </button>
-
-        <button class="videobtn" onclick="startVideoCall()">
-            📹
-        </button>
-
-        <button class="clearbtn" onclick="clearChat()">
-            CLEAR
-        </button>
-
-    </div>
-
-</div>
-
-        <div class="start">
-            — Anonymous Connection Established —
+        <div class="roomtext">
+            ROOM // <span id="room-name"></span>
         </div>
 
-        <div id="messages"></div>
+        <div class="top-actions">
 
-        <div class="chat-input">
+            <button class="callbtn" onclick="startVoiceCall()">
+                📞
+            </button>
 
-            <input 
-                type="text"
-                id="messageInput"
-                placeholder="Type Message..."
-            >
+            <button class="videobtn" onclick="startVideoCall()">
+                📹
+            </button>
 
-            <button onclick="sendMessage()">
-                SEND
+            <button class="clearbtn" onclick="clearChat()">
+                CLEAR
             </button>
 
         </div>
+
+    </div>
+
+    <div class="start">
+        — Anonymous Connection Established —
+    </div>
+
+    <div id="messages"></div>
+
+    <div class="chat-input">
+
+        <input
+            type="text"
+            id="messageInput"
+            placeholder="Type Message..."
+        >
+
+        <button onclick="sendMessage()">
+            SEND
+        </button>
 
     </div>
 
